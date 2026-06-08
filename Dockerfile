@@ -18,10 +18,14 @@ RUN chmod -R 777 /home/suwayomi
 # Switch back to the suwayomi non-root user
 USER suwayomi
 
-# Copy our custom entrypoint startup script
+# Copy our custom entrypoint startup script and branding files
 COPY --chown=suwayomi:suwayomi startup.sh /home/suwayomi/startup.sh
+COPY --chown=suwayomi:suwayomi mangago-inject.js /home/suwayomi/mangago-inject.js
+COPY --chown=suwayomi:suwayomi mangago-inject.css /home/suwayomi/mangago-inject.css
+COPY --chown=suwayomi:suwayomi mangago-logo.png /home/suwayomi/mangago-logo.png
 RUN chmod +x /home/suwayomi/startup.sh
 
 # Use our startup script as the entrypoint
 ENTRYPOINT ["tini", "--"]
 CMD ["/home/suwayomi/startup.sh"]
+

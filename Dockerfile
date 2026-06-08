@@ -12,6 +12,9 @@ COPY server.conf /home/suwayomi/.local/share/Tachidesk/server.conf
 # Ensure correct ownership of files
 RUN chown -R suwayomi:suwayomi /home/suwayomi/.local/share/Tachidesk
 
+# Grant full read/write/execute permissions to any user running the container
+RUN chmod -R 777 /home/suwayomi
+
 # Switch back to the suwayomi non-root user
 USER suwayomi
 

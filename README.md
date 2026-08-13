@@ -1,13 +1,3 @@
----
-title: MANGA GO
-emoji: 📚
-colorFrom: yellow
-colorTo: red
-sdk: docker
-app_port: 7860
-pinned: false
----
-
 <p align="center">
   <img src="header.svg" alt="MANGA GO - Free Unlimited Manga &amp; Webtoon Reader" width="100%">
 </p>

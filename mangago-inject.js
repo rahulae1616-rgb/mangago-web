@@ -76,6 +76,20 @@
                 }
             });
         }
+
+        // 5. Auto-dismiss "Updated version" modal dialogs
+        const dialogs = document.querySelectorAll('.MuiDialog-root, [role="dialog"]');
+        dialogs.forEach(dialog => {
+            const text = dialog.textContent || "";
+            if (text.includes("Updated version") || text.includes("Server was updated")) {
+                const okBtn = Array.from(dialog.querySelectorAll('button')).find(btn => btn.textContent.trim().toUpperCase() === "OK");
+                if (okBtn) {
+                    okBtn.click();
+                } else {
+                    dialog.remove();
+                }
+            }
+        });
     }
 
     // Set up a MutationObserver to apply customizations instantly when the page changes

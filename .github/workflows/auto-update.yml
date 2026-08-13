@@ -1,0 +1,38 @@
+name: Auto-Update Suwayomi
+
+on:
+  schedule:
+    - cron: '0 12 * * *'
+  workflow_dispatch:
+
+jobs:
+  check-update:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Get latest Suwayomi preview version
+        id: latest
+        run: |
+          VERSION=$(curl -s https://api.github.com/repos/Suwayomi/Suwayomi-Server/releases/latest | jq -r '.tag_name')
+          echo "version=$VERSION" >> "$GITHUB_OUTPUT"
+          echo "Latest Suwayomi version: $VERSION"
+
+      - name: Get current pinned version
+        id: current
+        run: |
+          VERSION=$(cat .suwayomi-version 2>/dev/null || echo "none")
+          echo "version=$VERSION" >> "$GITHUB_OUTPUT"
+          echo "Current pinned version: $VERSION"
+
+      - name: Update if new version
+        if: steps.latest.outputs.version != steps.current.outputs.version
+        run: |
+          echo "${{ steps.latest.outputs.version }}" > .suwayomi-version
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add .suwayomi-version
+          git commit -m "chore: update Suwayomi to ${{ steps.latest.outputs.version }}"
+          git push
+          echo "Updated to ${{ steps.latest.outputs.version }}"

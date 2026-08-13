@@ -12,11 +12,9 @@ pinned: false
 
 Read thousands of manga, webtoons, and comics in your browser. No downloads needed.
 
-## Live Website Links
+## Start Reading
 
-- **Vercel Landing Page**: [MANGA GO Web App](https://mangago-web-main.vercel.app)
-- **Direct Reader Library**: [MANGA GO Library](https://rahulae161-mangagohg.hf.space/library)
-- **Browse Catalog**: [MANGA GO Browse Catalog](https://rahulae161-mangagohg.hf.space/browse)
+🔥 **[Open MANGA GO](https://rahulae161-mangagohg.hf.space/browse)**
 
 ## Features
 
@@ -30,6 +28,5 @@ Read thousands of manga, webtoons, and comics in your browser. No downloads need
 - **Backend / Engine**: Suwayomi Server v2.3 Preview (`ghcr.io/suwayomi/suwayomi-server:preview`) hosted on Hugging Face Spaces.
 - **Extensions Store**: Keiyoushi Repositories (`https://raw.githubusercontent.com/keiyoushi/extensions/repo/index.min.json`).
 - **UI Customization**: Embedded CSS/JS injection engine (`mangago-inject.css`, `mangago-inject.js`).
-- **Web Landing Page**: Vercel Static Hosting with responsive glassmorphism interface (`index.html`).
 
 Developed by **RAHUL CHANDRA**

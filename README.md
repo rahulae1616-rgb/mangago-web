@@ -1,3 +1,13 @@
+---
+title: MANGA GO
+emoji: 📚
+colorFrom: yellow
+colorTo: red
+sdk: docker
+app_port: 7860
+pinned: false
+---
+
 # MANGA GO - Free Manga Reader
 
 Read thousands of manga, webtoons, and comics in your browser. No downloads needed.
